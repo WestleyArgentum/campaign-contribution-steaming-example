@@ -1,0 +1,9 @@
+{
+  "name": "committee-contribution-vis",
+  "description": "A visualization of committee contributions to US congressional candidates from 2010 - 2014",
+  "author": "Westley Hennigh <westleyargentum@gmail.com>",
+  "dependencies": {
+    "express": "4.9.x"
+  },
+  "engine": "node >= 0.10.32"
+}
