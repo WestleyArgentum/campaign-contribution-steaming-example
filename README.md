@@ -4,7 +4,7 @@ This is a visualization of industry spending on congressional campaigns from 201
 This visualization is driven by data from the [Center for Responsive Politics](https://www.opensecrets.org/) and [Maplight](http://maplight.org/).
 
 ### To Run
-First, aquire the data! Right now that means emailing me at WestleyArgentum@gmail.com
+First, unzip the data! Extract `./contribution-vis/data.zip` into `./contribution-vis/data/`. You're new `data` directory should contain `contributions.json` and `industries.json`.
 
 ```
 cd committee-contribution-vis
