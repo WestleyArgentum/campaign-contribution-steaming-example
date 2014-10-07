@@ -3,6 +3,11 @@ var fs = require('fs'),
     express = require('express'),
     app = express();
 
+if (!fs.existsSync(__dirname + '/contribution-vis/data/contributions.json')) {
+    console.log('Error: Can not load contribution data. Probably you need to extract `committee-contribution-vis/contribution-vis/data.zip` into `committee-contribution-vis/contribution-vis/data/`');
+    return;
+}
+
 // load in the contribution data (in the real world we would probably be pulling
 // data out of a database or something similar)
 var contributions = fs.readFileSync(__dirname + '/contribution-vis/data/contributions.json');
