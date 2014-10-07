@@ -9,7 +9,7 @@ First, unzip the data! Extract `./contribution-vis/data.zip` into `./contributio
 ```
 cd committee-contribution-vis
 npm install
-npm app.js
+node app.js
 ```
 
 The visualization will be at `http://localhost:8000/`
