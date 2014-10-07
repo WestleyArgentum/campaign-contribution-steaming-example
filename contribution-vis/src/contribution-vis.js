@@ -46,6 +46,11 @@ $(function () {
             },
 
             yAxis: {
+                // Log scale isn't perfect for this visualization because it sometimes
+                // makes it hard to appriciate the magnitudes of difference between
+                // years of contributions. But it is probably the best that we can do,
+                // if we want to be able to compare the contributions of deep pocketed
+                // industries alongside less-well-off ones.
                 type: 'log'
             },
 
@@ -95,22 +100,26 @@ $(function () {
         }
     }
 
-    function setupIndustries(data) {
-        industryNames = data;
-        industryIndexes = Object.getOwnPropertyNames(industryNames);
-
+    function setupContributions() {
         for (var i = 0; i < 3; ++i) {
             contribTable[i].data = _.range(0, industryIndexes.length, 0);
         }
+
+        $.get('/contributions', { max: 12000 }, fetchContribs);
+    }
+
+    function setupIndustries(data) {
+        industryNames = data;
+        industryIndexes = Object.getOwnPropertyNames(industryNames);   
     }
 
     function setup() {
+        // pull in data about industries, then start pulling in contributions
         $.get('/data/industries.json', function (data) {
             setupIndustries(data);
-            $.get('/contributions', { max: 12000 }, fetchContribs);
+            setupContributions(); 
         });
     }
 
     setup();
 });
-
